@@ -7,12 +7,75 @@
           alt="Logo"
         />
       </a>
-      <v-list-item-content>
-        <router-link to="/">Home</router-link>
-      </v-list-item-content>
-      <v-list-item-content>
-        <router-link to="/about">About</router-link>
-      </v-list-item-content>
+      <nav class="main">
+        <v-list>
+          <v-list-item>
+            <router-link to="/">
+              <v-list-item-icon>
+                <v-icon>mdi-home</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Home</v-list-item-title>
+            </router-link>
+          </v-list-item>
+
+          <v-list-item>
+            <router-link to="/about">
+              <v-list-item-icon>
+                <v-icon>mdi-information</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>About</v-list-item-title>
+            </router-link>
+          </v-list-item>
+
+          <v-list-group prepend-icon="account_circle">
+            <template v-slot:activator>
+              <v-list-item-title>Users</v-list-item-title>
+            </template>
+
+            <v-list-group no-action sub-group>
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title>Admin</v-list-item-title>
+                </v-list-item-content>
+              </template>
+
+              <v-list-item v-for="(admin, i) in admins" :key="i" link>
+                <v-list-item-title v-text="admin[0]"></v-list-item-title>
+                <v-list-item-icon>
+                  <v-icon v-text="admin[1]"></v-icon>
+                </v-list-item-icon>
+              </v-list-item>
+            </v-list-group>
+
+            <v-list-group sub-group no-action>
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title>Actions</v-list-item-title>
+                </v-list-item-content>
+              </template>
+              <v-list-item v-for="(crud, i) in cruds" :key="i">
+                <v-list-item-title v-text="crud[0]"></v-list-item-title>
+                <v-list-item-action>
+                  <v-icon v-text="crud[1]"></v-icon>
+                </v-list-item-action>
+              </v-list-item>
+            </v-list-group>
+          </v-list-group>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Settings</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-help</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Help</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </nav>
     </v-navigation-drawer>
     <v-app-bar app>
       <div class="left">
@@ -25,9 +88,16 @@
         </div>
       </div>
       <div class="right">
-        <v-badge bordered color="error" icon="mdi-lock" overlap>
-          <v-btn class="white--text" color="error" depressed>Lock Account</v-btn>
-        </v-badge>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn color="primary" dark v-on="on">Dropdown</v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-for="(item, index) in items" :key="index">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-list-item>
           <v-list-item-avatar>
             <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
@@ -54,7 +124,23 @@ export default Vue.extend({
   components: {},
 
   data: () => ({
-    drawer: null
+    drawer: null,
+    admins: [
+      ["Management", "people_outline"],
+      ["Settings", "settings"]
+    ],
+    cruds: [
+      ["Create", "add"],
+      ["Read", "insert_drive_file"],
+      ["Update", "update"],
+      ["Delete", "delete"]
+    ],
+    items: [
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me 2" }
+    ]
   })
 });
 </script>
@@ -71,8 +157,23 @@ body {
   line-height: 1.5;
   position: relative;
 }
+nav.main {
+  a {
+    display: flex;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    width: 100%;
+    opacity: 0.5;
+    &.router-link-exact-active {
+      opacity: 1;
+    }
+  }
+}
 .v-navigation-drawer {
   box-shadow: 0px 2px 4px rgba(31, 30, 47, 0.1);
+  navlink {
+    display: flex;
+  }
   .logo {
     display: block;
     padding: 1rem 2rem;
@@ -86,6 +187,7 @@ body {
 }
 .v-content__wrap {
   background-color: #edf0f5;
+  padding: 2rem;
 }
 .v-toolbar {
   background: #fff !important;
