@@ -163,17 +163,15 @@ nav.main {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.87);
     width: 100%;
-    opacity: 0.5;
+    //opacity: 0.5;
     &.router-link-exact-active {
-      opacity: 1;
+      //opacity: 1;
+      font-weight: bold;
     }
   }
 }
 .v-navigation-drawer {
   box-shadow: 0px 2px 4px rgba(31, 30, 47, 0.1);
-  navlink {
-    display: flex;
-  }
   .logo {
     display: block;
     padding: 1rem 2rem;
