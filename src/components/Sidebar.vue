@@ -1,6 +1,6 @@
 <template>
   <div class="div">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" v-bind:key="drawer" app>
       <a href class="logo">
         <img
           src="https://upload.wikimedia.org/wikipedia/de/f/ff/Helvetia_%28Versicherung%29_logo.svg"
@@ -18,7 +18,7 @@ export default Vue.extend({
   name: "Sidebar",
 
   data: () => ({
-    drawer: null
+    //drawer: null
   })
 });
 </script>

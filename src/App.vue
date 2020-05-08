@@ -39,7 +39,9 @@ export default Vue.extend({
   },
 
   data: () => ({
-    drawer: null
-  })
+    // drawer: null
+  }),
+
+  props: ["drawer"]
 });
 </script>
