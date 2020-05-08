@@ -7,6 +7,8 @@
           alt="Logo"
         />
       </a>
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
     </v-navigation-drawer>
     <v-app-bar app color="primary" dark>
       <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
@@ -26,21 +28,18 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld />
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 
 export default Vue.extend({
   name: "App",
 
-  components: {
-    HelloWorld
-  },
+  components: {},
 
   data: () => ({
     drawer: null
