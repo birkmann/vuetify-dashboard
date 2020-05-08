@@ -88,9 +88,15 @@
         </div>
       </div>
       <div class="right">
-        <v-menu offset-y>
+        <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Dropdown</v-btn>
+            <div class="user-dropdown" v-on="on">
+              <v-list-item>
+                <v-list-item-avatar>
+                  <v-img src="https://randomuser.me/api/portraits/men/20.jpg"></v-img>
+                </v-list-item-avatar>
+              </v-list-item>
+            </div>
           </template>
           <v-list>
             <v-list-item v-for="(item, index) in items" :key="index">
@@ -98,14 +104,6 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title>John Leider</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
       </div>
     </v-app-bar>
 
@@ -136,10 +134,10 @@ export default Vue.extend({
       ["Delete", "delete"]
     ],
     items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" }
+      { title: "Profile" },
+      { title: "Edit Profile" },
+      { title: "Account Settings" },
+      { title: "Sign Out" }
     ]
   })
 });
@@ -156,6 +154,10 @@ body {
   letter-spacing: 0.1px;
   line-height: 1.5;
   position: relative;
+  .v-application .primary--text {
+    color: #46a9b4 !important;
+    caret-color: #46a9b4 !important;
+  }
 }
 nav.main {
   a {
@@ -167,6 +169,7 @@ nav.main {
     &.router-link-exact-active {
       //opacity: 1;
       font-weight: bold;
+      color: #46a9b4;
     }
   }
 }
@@ -227,6 +230,18 @@ nav.main {
     .right {
       display: flex;
       align-items: center;
+      .user-dropdown {
+        cursor: pointer;
+        padding: 0 0.5rem;
+        border-radius: 3px;
+        transition: all 0.15s ease-in-out;
+        .v-list-item {
+          padding: 0;
+          .v-list-item__avatar {
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }
