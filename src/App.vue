@@ -1,7 +1,13 @@
 <template>
   <v-app>
-    <Sidebar />
-
+    <v-navigation-drawer v-model="drawer" v-bind:key="drawer" app>
+      <a href class="logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/de/f/ff/Helvetia_%28Versicherung%29_logo.svg"
+          alt="Logo"
+        />
+      </a>
+    </v-navigation-drawer>
     <v-app-bar app color="primary" dark>
       <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
         <span class="mr-2">Latest Release</span>
@@ -28,20 +34,28 @@
 <script lang="ts">
 import Vue from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import Sidebar from "./components/Sidebar.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld,
-    Sidebar
+    HelloWorld
   },
 
   data: () => ({
-    // drawer: null
-  }),
-
-  props: ["drawer"]
+    drawer: null
+  })
 });
 </script>
+
+<style lang="scss">
+.v-navigation-drawer {
+  .logo {
+    display: block;
+    padding: 1rem;
+    img {
+      width: 100%;
+    }
+  }
+}
+</style>
