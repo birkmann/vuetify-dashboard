@@ -98,7 +98,13 @@ export default Vue.extend({
   components: {},
 
   data: () => ({
-    drawer: null
+    drawer: null,
+    items: [
+      { title: "Profile" },
+      { title: "Edit Profile" },
+      { title: "Account Settings" },
+      { title: "Sign Out" }
+    ]
   })
 });
 </script>
