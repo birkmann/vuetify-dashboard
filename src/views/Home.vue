@@ -8,7 +8,7 @@
       </v-row>
     </v-container>
 
-    <v-tabs fixed-tabs background-color="#edf0f5">
+    <v-tabs v-model="tab" background-color="#edf0f5">
       <v-tab>Option</v-tab>
       <v-tab>Another Selection</v-tab>
       <v-tab>Items</v-tab>
@@ -121,3 +121,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.v-tabs-bar__content {
+  border-bottom: 1px solid #ccc;
+  .v-tab {
+    text-transform: none;
+  }
+}
+</style>
