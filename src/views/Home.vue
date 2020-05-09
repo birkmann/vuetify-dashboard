@@ -8,24 +8,16 @@
       </v-row>
     </v-container>
 
-    <v-tabs v-model="tab" background-color="#edf0f5">
-      <v-tab>Option</v-tab>
-      <v-tab>Another Selection</v-tab>
-      <v-tab>Items</v-tab>
-      <v-tab>Another Screen</v-tab>
-    </v-tabs>
-
     <v-container>
       <v-row>
         <v-col sm="4">
-          <v-progress-linear v-model="power" color="amber" height="25" reactive></v-progress-linear>
-          <input v-model="power" placeholder="edit me" />
+          <v-progress-linear value="25" color="#46a9b4" height="15" rounded></v-progress-linear>
         </v-col>
         <v-col sm="4">
-          <v-progress-linear value="50"></v-progress-linear>
+          <v-progress-linear value="50" color="#46a9b4" height="15" rounded></v-progress-linear>
         </v-col>
         <v-col sm="4">
-          <v-progress-linear value="75"></v-progress-linear>
+          <v-progress-linear value="75" color="#46a9b4" height="15" rounded></v-progress-linear>
         </v-col>
       </v-row>
     </v-container>
@@ -123,10 +115,6 @@ export default {
 </script>
 
 <style lang="scss">
-.v-tabs-bar__content {
-  border-bottom: 1px solid #ccc;
-  .v-tab {
-    text-transform: none;
-  }
+* {
 }
 </style>
