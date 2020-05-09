@@ -98,23 +98,7 @@ export default Vue.extend({
   components: {},
 
   data: () => ({
-    drawer: null,
-    admins: [
-      ["Management", "people_outline"],
-      ["Settings", "settings"]
-    ],
-    cruds: [
-      ["Create", "add"],
-      ["Read", "insert_drive_file"],
-      ["Update", "update"],
-      ["Delete", "delete"]
-    ],
-    items: [
-      { title: "Profile" },
-      { title: "Edit Profile" },
-      { title: "Account Settings" },
-      { title: "Sign Out" }
-    ]
+    drawer: null
   })
 });
 </script>
