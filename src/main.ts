@@ -5,7 +5,6 @@ import vuetify from './plugins/vuetify';
 import vueApexCharts from 'vue-apexcharts';
 
 Vue.config.productionTip = false;
-
 Vue.component('apexchart', vueApexCharts);
 
 new Vue({
