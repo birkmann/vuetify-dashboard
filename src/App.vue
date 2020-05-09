@@ -2,10 +2,7 @@
   <v-app>
     <v-navigation-drawer v-model="drawer" v-bind:key="drawer" app>
       <a href="/" class="logo">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/de/f/ff/Helvetia_%28Versicherung%29_logo.svg"
-          alt="Logo"
-        />
+        <img src="https://www.capillarytech.com/img/CapillaryTech.svg" alt="Logo" />
       </a>
       <nav class="main">
         <v-list>
@@ -14,7 +11,7 @@
               <v-list-item-icon>
                 <i class="fi flaticon-home"></i>
               </v-list-item-icon>
-              <v-list-item-title>Home</v-list-item-title>
+              <v-list-item-title>Dashboard</v-list-item-title>
             </router-link>
           </v-list-item>
 
@@ -141,14 +138,16 @@ body {
   }
 }
 nav.main {
+  .v-list-item {
+    padding: 0 !important;
+  }
   a {
     display: flex;
     text-decoration: none;
     color: #666;
     width: 100%;
-    //opacity: 0.5;
+    padding: 0.75rem 1.5rem;
     &.router-link-exact-active {
-      //opacity: 1;
       font-weight: bold;
       color: #000;
     }
@@ -158,10 +157,10 @@ nav.main {
   box-shadow: 0px 2px 4px rgba(31, 30, 47, 0.1);
   .logo {
     display: block;
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
     img {
       width: 100%;
-      max-height: 40px;
+      max-height: 50px;
     }
   }
   .v-navigation-drawer__border {
@@ -169,14 +168,20 @@ nav.main {
   }
   .v-list-item__icon {
     margin-right: 1rem !important;
+    margin-top: 0;
+    margin-bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.4rem;
   }
 }
 .v-content__wrap {
   background-color: #edf0f5;
   padding: 2rem;
+  .container {
+    max-width: 85rem;
+  }
 }
 .v-toolbar {
   background: #fff !important;

@@ -11,13 +11,13 @@
     <v-container>
       <v-row>
         <v-col sm="4">
-          <v-progress-linear value="25" color="#46a9b4" height="15" rounded></v-progress-linear>
+          <v-progress-linear value="25" color="#7fc241 " height="15" rounded></v-progress-linear>
         </v-col>
         <v-col sm="4">
-          <v-progress-linear value="50" color="#46a9b4" height="15" rounded></v-progress-linear>
+          <v-progress-linear value="50" color="#7fc241 " height="15" rounded></v-progress-linear>
         </v-col>
         <v-col sm="4">
-          <v-progress-linear value="75" color="#46a9b4" height="15" rounded></v-progress-linear>
+          <v-progress-linear value="75" color="#7fc241 " height="15" rounded></v-progress-linear>
         </v-col>
       </v-row>
     </v-container>
@@ -66,7 +66,7 @@ export default {
           palette: "palette1",
           monochrome: {
             enabled: true,
-            color: "#46a9b4",
+            color: "#7fc241",
             shadeTo: "light",
             shadeIntensity: 0.65
           }
@@ -95,7 +95,7 @@ export default {
         },
         markers: {
           size: 4,
-          colors: ["#46a9b4"],
+          colors: ["#7fc241 "],
           strokeColors: "#fff",
           strokeWidth: 2,
           hover: {
