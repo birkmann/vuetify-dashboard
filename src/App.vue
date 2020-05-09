@@ -12,67 +12,46 @@
           <v-list-item>
             <router-link to="/">
               <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
+                <i class="fi flaticon-home"></i>
               </v-list-item-icon>
               <v-list-item-title>Home</v-list-item-title>
             </router-link>
           </v-list-item>
 
           <v-list-item>
-            <router-link to="/about">
+            <router-link to="/builder">
               <v-list-item-icon>
-                <v-icon>mdi-information</v-icon>
+                <i class="fi flaticon-layout"></i>
               </v-list-item-icon>
-              <v-list-item-title>About</v-list-item-title>
+              <v-list-item-title>Layout Builder</v-list-item-title>
             </router-link>
           </v-list-item>
 
-          <v-list-group prepend-icon="account_circle">
-            <template v-slot:activator>
-              <v-list-item-title>Users</v-list-item-title>
-            </template>
-
-            <v-list-group no-action sub-group>
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>Admin</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-item v-for="(admin, i) in admins" :key="i" link>
-                <v-list-item-title v-text="admin[0]"></v-list-item-title>
-                <v-list-item-icon>
-                  <v-icon v-text="admin[1]"></v-icon>
-                </v-list-item-icon>
-              </v-list-item>
-            </v-list-group>
-
-            <v-list-group sub-group no-action>
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>Actions</v-list-item-title>
-                </v-list-item-content>
-              </template>
-              <v-list-item v-for="(crud, i) in cruds" :key="i">
-                <v-list-item-title v-text="crud[0]"></v-list-item-title>
-                <v-list-item-action>
-                  <v-icon v-text="crud[1]"></v-icon>
-                </v-list-item-action>
-              </v-list-item>
-            </v-list-group>
-          </v-list-group>
           <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-cog</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Settings</v-list-item-title>
+            <router-link to="/user">
+              <v-list-item-icon>
+                <i class="fi flaticon-user"></i>
+              </v-list-item-icon>
+              <v-list-item-title>User</v-list-item-title>
+            </router-link>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-help</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Help</v-list-item-title>
+            <router-link to="/settings">
+              <v-list-item-icon>
+                <i class="fi flaticon-settings"></i>
+              </v-list-item-icon>
+              <v-list-item-title>Settings</v-list-item-title>
+            </router-link>
+          </v-list-item>
+
+          <v-list-item>
+            <router-link to="/help">
+              <v-list-item-icon>
+                <i class="fi flaticon-help"></i>
+              </v-list-item-icon>
+              <v-list-item-title>Help</v-list-item-title>
+            </router-link>
           </v-list-item>
         </v-list>
       </nav>
@@ -145,6 +124,8 @@ export default Vue.extend({
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "./assets/scss/_flaticon.scss";
+
 body {
   margin: 0;
   overflow-x: hidden !important;
@@ -163,13 +144,13 @@ nav.main {
   a {
     display: flex;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: #666;
     width: 100%;
     //opacity: 0.5;
     &.router-link-exact-active {
       //opacity: 1;
       font-weight: bold;
-      color: #46a9b4;
+      color: #000;
     }
   }
 }
@@ -180,10 +161,17 @@ nav.main {
     padding: 1rem 2rem;
     img {
       width: 100%;
+      max-height: 40px;
     }
   }
   .v-navigation-drawer__border {
     display: none;
+  }
+  .v-list-item__icon {
+    margin-right: 1rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .v-content__wrap {
