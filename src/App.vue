@@ -195,7 +195,7 @@ export default Vue.extend({
       ['Update', 'update'],
       ['Delete', 'delete'],
     ],
-    uielements: [['Here', 'map', 'ui/here-map']],
+    uielements: [['Here', 'map', '/ui/here-map']],
   }),
 })
 </script>
