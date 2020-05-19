@@ -4,14 +4,8 @@
       <v-row>
         <v-col>
           <h2>Here Map</h2>
-          <HereMap
-            appId="T4vUi5MG8XH3ZbDOouDH"
-            appCode="bBchAe3QiyJEsnKnn1kT2FzROZusoVDnCkJMUja6VZ4"
-            lat="37.7397"
-            lng="-121.4252"
-            width="100%"
-            height="835px"
-          />
+          <HereMap apiKey="2CtEaLJvvCF4Dd1LooKV2Wq9Tw3Ji3ZSeKzQiLRBRH0">
+          </HereMap>
         </v-col>
       </v-row>
     </v-container>

@@ -1,44 +1,67 @@
 <template>
-  <div class="here-map">
-    <div ref="map" v-bind:style="{ width: width, height: height }"></div>
+  <div id="map">
+    <!--In the following div the HERE Map will render-->
+    <div id="mapContainer" style="height:600px;width:100%" ref="hereMap"></div>
   </div>
 </template>
 
 <script>
-const H = window.H
 export default {
   name: 'HereMap',
+  props: {
+    center: Object,
+    // center object { lat: 40.730610, lng: -73.935242 }
+  },
   data() {
     return {
-      map: {},
-      platform: {},
+      platform: null,
+      apikey: '{Replace this with HERE API KEY}',
+      // You can get the API KEY from developer.here.com
     }
   },
-  props: {
-    appId: String,
-    appCode: String,
-    lat: String,
-    lng: String,
-    width: String,
-    height: String,
-  },
-  created() {
-    this.platform = new H.service.Platform({
-      appId: this.appId,
-      appCode: this.appCode,
+  async mounted() {
+    // Initialize the platform object:
+    const platform = new window.H.service.Platform({
+      apikey: this.apikey,
     })
+    this.platform = platform
+    this.initializeHereMap()
   },
-  mounted() {
-    this.map = new H.Map(
-      this.$refs.map,
-      this.platform.createDefaultLayers().normal.map,
-      {
+  methods: {
+    initializeHereMap() {
+      // rendering map
+
+      const mapContainer = this.$refs.hereMap
+      const H = window.H
+      // Obtain the default map types from the platform object
+      const maptypes = this.platform.createDefaultLayers()
+
+      // Instantiate (and display) a map object:
+      const map = new H.Map(mapContainer, maptypes.vector.normal.map, {
         zoom: 10,
-        center: { lng: this.lng, lat: this.lat },
-      }
-    )
+        center: this.center,
+        // center object { lat: 40.730610, lng: -73.935242 }
+      })
+
+      addEventListener('resize', () => map.getViewPort().resize())
+
+      // add behavior control
+      new H.mapevents.Behavior(new H.mapevents.MapEvents(map))
+
+      // add UI
+      H.ui.UI.createDefault(map, maptypes)
+      // End rendering the initial map
+    },
   },
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#map {
+  width: 60vw;
+  min-width: 360px;
+  text-align: center;
+  margin: 5% auto;
+  background-color: #ccc;
+}
+</style>
