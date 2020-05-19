@@ -8,7 +8,7 @@
         />
       </a>
       <v-list>
-        <v-list-item>
+        <v-list-item href="/">
           <v-list-item-icon>
             <v-icon>mdi-home</v-icon>
           </v-list-item-icon>
@@ -28,7 +28,12 @@
               </v-list-item-content>
             </template>
 
-            <v-list-item v-for="(admin, i) in admins" :key="i" link>
+            <v-list-item
+              v-for="(admin, i) in admins"
+              :key="i"
+              :to="admin[2]"
+              link
+            >
               <v-list-item-title v-text="admin[0]"></v-list-item-title>
               <v-list-item-icon>
                 <v-icon v-text="admin[1]"></v-icon>
@@ -47,6 +52,32 @@
               <v-list-item-action>
                 <v-icon v-text="crud[1]"></v-icon>
               </v-list-item-action>
+            </v-list-item>
+          </v-list-group>
+        </v-list-group>
+
+        <v-list-group prepend-icon="account_circle">
+          <template v-slot:activator>
+            <v-list-item-title>UI Elements</v-list-item-title>
+          </template>
+
+          <v-list-group no-action sub-group>
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Maps</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="(uielement, i) in uielements"
+              :key="i"
+              :to="uielement[2]"
+              link
+            >
+              <v-list-item-title v-text="uielement[0]"></v-list-item-title>
+              <v-list-item-icon>
+                <v-icon v-text="uielement[1]"></v-icon>
+              </v-list-item-icon>
             </v-list-item>
           </v-list-group>
         </v-list-group>
@@ -155,7 +186,7 @@ export default Vue.extend({
       { title: 'Sign Out' },
     ],
     admins: [
-      ['Management', 'people_outline', '/managment'],
+      ['Management', 'people_outline', '/admin/managment'],
       ['Settings', 'settings', '/settings'],
     ],
     cruds: [
@@ -164,6 +195,7 @@ export default Vue.extend({
       ['Update', 'update'],
       ['Delete', 'delete'],
     ],
+    uielements: [['Here', 'map', 'ui/here-map']],
   }),
 })
 </script>
