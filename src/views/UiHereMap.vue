@@ -1,24 +1,36 @@
 <template>
-  <div>
-    <v-container>
-      <v-row>
-        <v-col>
-          <h2>Here Map</h2>
-          <HereMap apiKey="2CtEaLJvvCF4Dd1LooKV2Wq9Tw3Ji3ZSeKzQiLRBRH0">
-          </HereMap>
-        </v-col>
-      </v-row>
-    </v-container>
+  <div id="app">
+    <HereMap :center="center" />
   </div>
 </template>
 
 <script>
 import HereMap from '../components/HereMap'
-
 export default {
   name: 'app',
   components: {
     HereMap,
+    // Remove the HelloWorld.vue
+  },
+  data() {
+    return {
+      // we are this as prop to the HereMap component
+      center: {
+        lat: 40.73061,
+        lng: -73.935242,
+      },
+    }
   },
 }
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
