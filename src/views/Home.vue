@@ -105,7 +105,7 @@ export default {
       },
       SeriesChart01: [
         {
-          name: "VAlues",
+          name: "Values",
           data: [88, 91, 88, 89, 73, 88, 91]
         }
       ]
