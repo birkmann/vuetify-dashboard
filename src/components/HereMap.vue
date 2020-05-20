@@ -43,6 +43,8 @@ export default {
         // center object { lat: 40.730610, lng: -73.935242 }
       })
 
+      map.addObject(new H.map.Marker({ lat: 40.73061, lng: -73.935242 }))
+
       addEventListener('resize', () => map.getViewPort().resize())
 
       // add behavior control
